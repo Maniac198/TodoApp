@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Login/Signup Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #loginFormContainer {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #loginFormContainer {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    .card {
+      border: 0;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      padding: 15px 0;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .btn-primary,
+    .btn-success {
+      background-color: #007bff;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-success:hover {
+      background-color: #0056b3;
+    }
+
+    .form-link {
+      color: #007bff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .form-link:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Login / Sign Up</h3>
+      </div>
+      <div class="card-body">
+        <div id="loginFormContainer">
+          <!-- Login Form -->
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Password" />
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="login()">
+              Login
+            </button>
+          </form>
+          <div class="text-center mt-3">
+            <p>
+              Don't have an account?
+              <span class="form-link" onclick="showSignupForm()">Sign Up</span>
+            </p>
+          </div>
+        </div>
+
+        <div id="signupFormContainer">
+          <!-- Signup Form -->
+          <form id="signupForm">
+            <div style="display: flex">
+              <div style="padding: 20px">
+                <div class="form-group">
+                  <label for="signupName">Full Name</label>
+                  <input type="text" class="form-control" id="signupName" placeholder="Enter your name" />
+                </div>
+                <div class="form-group">
+                  <label for="signupUsername">Username</label>
+                  <input type="text" class="form-control" id="signupUsername" placeholder="Enter your username" />
+                </div>
+                <div class="form-group">
+                  <label for="signupPassword">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                  <label for="signupEmail">Email address</label>
+                  <input type="email" class="form-control" id="signupEmail" placeholder="Enter email" />
+                </div>
+                <div class="form-group">
+                  <label for="signupDob">Date of Birth</label>
+                  <input type="date" class="form-control" id="signupDob" />
+                </div>
+                <div class="form-group">
+                  <label>Gender</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" />
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" />
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <div style="padding: 20px">
+                <div class="form-group">
+                  <label for="signupAddress">Address</label>
+                  <input type="text" class="form-control" id="signupAddress" placeholder="Enter your address" />
+                </div>
+                <div class="form-group">
+                  <label for="signupCity">City</label>
+                  <input type="text" class="form-control" id="signupCity" placeholder="Enter your city" />
+                </div>
+                <div class="form-group">
+                  <label for="signupPincode">Pincode</label>
+                  <input type="text" class="form-control" id="signupPincode" placeholder="Enter your pincode" />
+                </div>
+                <div class="form-group">
+                  <label for="signupState">State</label>
+                  <input type="text" class="form-control" id="signupState" placeholder="Enter your state" />
+                </div>
+                <div class="form-group">
+                  <label>Hobbies</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="hobbies[]" id="reading" value="reading" />
+                    <label class="form-check-label" for="reading">Reading</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="hobbies[]" id="coding" value="coding" />
+                    <label class="form-check-label" for="coding">Coding</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="hobbies[]" id="traveling" value="traveling" />
+                    <label class="form-check-label" for="traveling">Traveling</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-success btn-block" onclick="signup()">
+              Sign Up
+            </button>
+          </form>
+          <div class="text-center mt-3">
+            <p>
+              Already have an account?
+              <span class="form-link" onclick="showLoginForm()">Login</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script>
+    $(document).ready(function () {
+      showLoginForm(); // Show login form by default
+    });
+
+    function showSignupForm() {
+      $("#loginFormContainer").hide();
+      $("#signupFormContainer").show();
+    }
+
+    function showLoginForm() {
+      $("#signupFormContainer").hide();
+      $("#loginFormContainer").show();
+    }
+
+    function validateEmail(email) {
+      // Regular expression for email validation
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function validatePassword(password) {
+      // Check if password is empty
+      if (!password) {
+        return false;
+      }
+      // Regular expression for password validation (at least 8 characters, containing at least one uppercase letter, one lowercase letter, one number, and one special character)
+      var re =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+      return re.test(password);
+    }
+
+    function validatePincode(pincode) {
+      // Regular expression for pincode validation (exactly 6 digits)
+      var re = /^\d{6}$/;
+      return re.test(pincode);
+    }
+
+    function validateDateOfBirth(dob) {
+      // Get current date
+      var currentDate = new Date();
+      // Get year 2004 years ago
+      var cutoffDate = new Date(
+        currentDate.getFullYear() - 18,
+        currentDate.getMonth(),
+        currentDate.getDate()
+      );
+      // Convert cutoff date to ISO string format (YYYY-MM-DD) for comparison
+      var cutoffDateString = cutoffDate.toISOString().split("T")[0];
+      return dob <= cutoffDateString;
+    }
+
+    function validateForm() {
+      var name = $("#signupName").val();
+      var username = $("#signupUsername").val();
+      var email = $("#signupEmail").val();
+      var password = $("#signupPassword").val();
+      var dob = $("#signupDob").val();
+      var gender = $("input[name='gender']:checked").val();
+      var address = $("#signupAddress").val();
+      var city = $("#signupCity").val();
+      var pincode = $("#signupPincode").val();
+      var state = $("#signupState").val();
+      var hobbies = $("input[name='hobbies[]']:checked").length > 0;
+
+      // Validate each field
+      if (
+        !name ||
+        !username ||
+        !email ||
+        !password ||
+        !dob ||
+        !gender ||
+        !address ||
+        !city ||
+        !pincode ||
+        !state ||
+        !hobbies
+      ) {
+        alert("Please fill in all fields");
+        return false;
+      }
+
+      if (!validateEmail(email)) {
+        alert("Invalid email format");
+        return false;
+      }
+
+      // if (!validatePassword(password)) {
+      //   alert(
+      //     "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      //   );
+      //   return false;
+      // }
+
+      if (!validatePincode(pincode)) {
+        alert("Pincode must be a 6-digit number");
+        return false;
+      }
+
+      if (!validateDateOfBirth(dob)) {
+        alert("You must be at least 18 years old");
+        return false;
+      }
+
+      return true;
+    }
+
+    function signup() {
+      // Validate the form before submitting
+      if (validateForm()) {
+        var name = $("#signupName").val();
+        var username = $("#signupUsername").val();
+        var email = $("#signupEmail").val();
+        var password = $("#signupPassword").val();
+        var dob = $("#signupDob").val();
+        var gender = $("input[name='gender']:checked").val();
+        var address = $("#signupAddress").val();
+        var city = $("#signupCity").val();
+        var pincode = $("#signupPincode").val();
+        var state = $("#signupState").val();
+        var hobbies = [];
+        $("input[name='hobbies[]']:checked").each(function () {
+          hobbies.push($(this).val());
+        });
+
+        // AJAX call to store credentials
+        $.ajax({
+          type: "POST",
+          url: "signup_backend.php",
+          data: {
+            name: name,
+            username: username,
+            email: email,
+            password: password,
+            dob: dob,
+            gender: gender,
+            address: address,
+            city: city,
+            pincode: pincode,
+            state: state,
+            hobbies: hobbies,
+          },
+          dataType: "json",
+          success: function (response) {
+            alert(response.message);
+            if (response.success) {
+              showLoginForm();
+            }
+          },
+          error: function (error) {
+            alert("Error: " + error.statusText);
+          },
+        });
+      }
+    }
+
+    function login() {
+      var email = $("#loginEmail").val();
+      var password = $("#loginPassword").val();
+
+      // Simple validation (you may want to improve this)
+      if (!email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // AJAX call to check credentials
+      $.ajax({
+        type: "POST",
+        url: "login_backend.php",
+        data: {
+          email: email,
+          password: password,
+        },
+        dataType: "json",
+        success: function (response) {
+          if (response.success) {
+            alert("Login successful!");
+            // Redirect to the landing page (todo app)
+            window.location.href = "landing.html";
+          } else {
+            alert("Invalid credentials. Please try again.");
+          }
+        },
+        error: function (error) {
+          alert("Error: " + error.statusText);
+        },
+      });
+    }
+  </script>
+</body>
+
+</html>
